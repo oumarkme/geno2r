@@ -1,11 +1,17 @@
 Package: geno2r
-Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: Read Genotype Data To R
+Version: 0.1
+Authors@R: 
+    person("Jen-Hsiang", "Ou", role = c("aut", "cre"), email="oumark.me@outlook.com")
+Description: In this package, you will find functions that allow you to read genotype data into the R environment.
+License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+biocViews: Rsamtools
+Imports: 
+    data.table,
+    GenomicRanges,
+    IRanges,
+    Rsamtools,
+    stringr
