@@ -7,12 +7,12 @@
 read_vcf(file, range = NULL)
 }
 \arguments{
-\item{file}{The VCF file}
+\item{file}{The VCF file.}
 
 \item{range}{Genome range to read. e.g. chr1:150-2000. If you want to read all variants, leave the field blank or enter "NULL" in the input.}
 }
 \value{
-VCF file in data.table format.
+VCF file loaded and converted into data.table format.
 }
 \description{
 This function reads the VCF file into R and converts it to a data.table format. While genomic range is given, \href{https://github.com/samtools/htslib}{HTSlib}, a wrapped C library, reads directly from a region instead of loading the full VCF file to memory. It is mandatory to compress the VCF file using bgzip and create an index using tabix.

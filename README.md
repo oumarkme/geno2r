@@ -4,15 +4,17 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of geno2r is to easily import genotype data from various formats into R. 
-- [RSamtools](https://bioconductor.org/packages/release/bioc/html/Rsamtools.html) package imports wrapped [htslib](https://github.com/samtools/htslib/) to enhance the VCF reading speed. In order to efficiently read a VCF file, it should be compressed with [bgzip](https://www.htslib.org/doc/bgzip.html) and indexed with [tabix](https://www.htslib.org/doc/tabix.html).
-- The [genio](https://cran.r-project.org/web/packages/genio/index.html) package offers functions that enable the reading of [PLINK binary format data](https://www.cog-genomics.org/plink/).
+The goal of geno2r is to easily import genotype data from various formats into R.
+
+
+[HTSlib](https://github.com/samtools/htslib/) is wrapped and imported by [Rsamtools](https://bioconductor.org/packages/release/bioc/html/Rsamtools.html), to enhance the VCF reading speed. In order to efficiently read a VCF file, it should be compressed with [bgzip](https://www.htslib.org/doc/bgzip.html) and indexed with [tabix](https://www.htslib.org/doc/tabix.html).
+
 
 
 
 ## Installation
 
-You can install the development version of geno2r from [GitHub](https://github.com/) with:
+You can install the most recent version of geno2r from GitHub with:
 
 ``` r
 # install.packages("devtools")
@@ -21,10 +23,14 @@ devtools::install_github("oumarkme/geno2r")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to read VCF data to R with [`read_vcf()`](reference/read_vcf.html):
 
 ``` r
 library(geno2r)
-read_vcf(file = "example.vcf.gz", range="chr1:1000-1500")
+read_vcf(file = "human.vcf.gz", range="1:1000-300000")
 ```
 
+
+## Example data
+
+You can find an example VCF file on [Github](https://github.com/oumarkme/geno2r/tree/main/vcf_data_example).

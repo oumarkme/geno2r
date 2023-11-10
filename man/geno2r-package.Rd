@@ -9,7 +9,7 @@
 In this package, you will find functions that allow you to read genotype data into the R environment.
 }
 \author{
-\strong{Maintainer}: Jen-Hsiang Ou \email{oumark.me@outlook.com}
+\strong{Maintainer}: Jen-Hsiang Ou \email{oumark.me@outlook.com} (\href{https://orcid.org/0000-0001-9305-2931}{ORCID})
 
 }
 \keyword{internal}

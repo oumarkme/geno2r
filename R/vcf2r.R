@@ -5,14 +5,14 @@
 #' This function reads the VCF file into R and converts it to a data.table format. While genomic range is given, [HTSlib](https://github.com/samtools/htslib), a wrapped C library, reads directly from a region instead of loading the full VCF file to memory. It is mandatory to compress the VCF file using bgzip and create an index using tabix.
 #'
 #'
-#' @param file The VCF file
+#' @param file The VCF file.
 #' @param range Genome range to read. e.g. chr1:150-2000. If you want to read all variants, leave the field blank or enter "NULL" in the input.
 #' @import data.table
 #' @import Rsamtools
 #' @import stringr
 #' @importFrom GenomicRanges GRanges
 #' @importFrom IRanges IRanges
-#' @return VCF file in data.table format.
+#' @return VCF file loaded and converted into data.table format.
 #'
 #' @export
 read_vcf = function(file, range = NULL){
