@@ -1,16 +1,14 @@
-
 # geno2r
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/oumarkme/geno2r/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/oumarkme/geno2r/actions/workflows/R-CMD-check.yaml) [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+
 <!-- badges: end -->
 
 The goal of geno2r is to easily import genotype data from various formats into R.
 
-
 [HTSlib](https://github.com/samtools/htslib/) is wrapped and imported by [Rsamtools](https://bioconductor.org/packages/release/bioc/html/Rsamtools.html), to enhance the VCF reading speed. In order to efficiently read a VCF file, it should be compressed with [bgzip](https://www.htslib.org/doc/bgzip.html) and indexed with [tabix](https://www.htslib.org/doc/tabix.html).
-
-
-
 
 ## Installation
 
@@ -29,7 +27,6 @@ This is a basic example which shows you how to read VCF data to R with [`read_vc
 library(geno2r)
 read_vcf(file = "human.vcf.gz", range="1:1000-300000")
 ```
-
 
 ## Example data
 
