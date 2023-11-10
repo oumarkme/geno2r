@@ -6,7 +6,7 @@
 #'
 #'
 #' @param file The VCF file.
-#' @param range Genome range to read. e.g. chr1:150-2000. If you want to read all variants, leave the field blank or enter "NULL" in the input.
+#' @param range To specify the range you want to read from the genome. e.g. "1:1000-100000" (genomic range), "1:12345" (single variant), NULL (all variants)
 #' @import data.table
 #' @import Rsamtools
 #' @import stringr
