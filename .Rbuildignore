@@ -5,3 +5,4 @@
 ^docs$
 ^pkgdown$
 ^vcf_data_example$
+^\.github$
