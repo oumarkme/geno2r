@@ -42,7 +42,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">read_vcf</span><span class="op">(</span><span class="va">file</span>, range <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">read_vcf</span><span class="op">(</span><span class="va">file</span>, range <span class="op">=</span> <span class="cn">NULL</span>, reformat <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -54,12 +54,16 @@
 <dt>range</dt>
 <dd><p>To specify the range you want to read from the genome. e.g. "1:1000-100000" (genomic range), "1:12345" (single variant), NULL (all variants)</p></dd>
 
+
+<dt>reformat</dt>
+<dd><p>Default: TRUE. Reformat VCF file to a genome matrix and a marker information table. If FALSE, return the original VCF file as a table.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>VCF file loaded and converted into data.table format.</p>
+<p>VCF file loaded and converted into matrix or data.table format (dependents on the reformat option). The genomic matrix uses a 0/1/2 coding system to represent the number of alternative alleles present.</p>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
