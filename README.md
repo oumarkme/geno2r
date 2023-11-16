@@ -16,7 +16,7 @@ You can install the most recent version of geno2r from GitHub with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("oumarkme/geno2r")
+devtools::install_github("oumarkme/geno2r", force=TRUE)
 ```
 
 ## Example
