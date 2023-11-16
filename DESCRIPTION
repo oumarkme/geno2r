@@ -1,6 +1,6 @@
 Package: geno2r
 Title: Read Genotype Data To R
-Version: 1.2
+Version: 1.3
 Authors@R: 
     person("Jen-Hsiang", "Ou", role = c("aut", "cre"), email="oumark.me@outlook.com", comment = c(ORCID = "0000-0001-9305-2931"))
 Description: In this package, you will find functions that allow you to read genotype data into the R environment.
