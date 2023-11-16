@@ -44,11 +44,10 @@ read_vcf = function(file, range = NULL, reformat=TRUE){
     end = ifelse(is.na(as.numeric(range[3])), as.numeric(range[2]), as.numeric(range[3]))
 
     # load file
-    vcf = unlist(Rsamtools::scanTabix(file, param=GenomicRanges::GRanges(seqnames = "1", IRanges::IRanges(start, width = end-start+1))))
     if(length(vcf) == 1){
-      vcf = data.table::as.data.table(t(unlist(stringr::str_split(vcf, "\t"))))
+      vcf = data.table::as.data.table(t(unlist(stringr::str_split(unlist(Rsamtools::scanTabix(file, param=GenomicRanges::GRanges(seqnames = "1", IRanges::IRanges(start, width = end-start+1)))), "\t"))))
     }else{
-      vcf = data.table::fread(text = vcf)
+      vcf = data.table::fread(text = unlist(Rsamtools::scanTabix(file, param=GenomicRanges::GRanges(seqnames = "1", IRanges::IRanges(start, width = end-start+1)))))
     }
   }
 
