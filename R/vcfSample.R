@@ -1,3 +1,4 @@
+
 #' Load sample names from VCF file
 #'
 #' @description
@@ -10,6 +11,7 @@
 #'
 #' @export
 vcf_sample = function(file){
+
   ### Check if vcf file and its index exist ###
   if(! file.exists(file)){
     stop("VCF file not found.")
@@ -21,4 +23,5 @@ vcf_sample = function(file){
   ### Load VCF header ###
   samples = as.character(Rsamtools::scanBcfHeader(file)[[file]]$Sample)
   return(samples)
+
 }
