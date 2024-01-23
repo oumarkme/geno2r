@@ -4,17 +4,15 @@
 \alias{read_vcf}
 \title{Read VCF to R}
 \usage{
-read_vcf(file, range = NULL, reformat = TRUE)
+read_vcf(file, range = NULL)
 }
 \arguments{
 \item{file}{The VCF file.}
 
-\item{range}{To specify the range you want to read from the genome. e.g. "1:1000-100000" (genomic range), "1:12345" (single variant), NULL (all variants)}
-
-\item{reformat}{Default: TRUE. Reformat VCF file to a genome matrix and a marker information table. If FALSE, return the original VCF file as a table.}
+\item{range}{To specify the range you want to read from the genome. e.g. "1:1000-100000" (genomic range), "1:12345"(single variant), "1:12345-12345" (single variant), NULL (all variants)}
 }
 \value{
-VCF file loaded and converted into matrix or data.table format (dependents on the reformat option). The genomic matrix uses a 0/1/2 coding system to represent the number of alternative alleles present.
+A list which include a genotype matrix and a marker information data.table.
 }
 \description{
 This function reads the VCF file into R and converts it to a data.table format. While genomic range is given, \href{https://github.com/samtools/htslib}{HTSlib}, a wrapped C library, reads directly from a region instead of loading the full VCF file to memory. It is mandatory to compress the VCF file using bgzip and create an index using tabix.

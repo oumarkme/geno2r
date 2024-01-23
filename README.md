@@ -25,7 +25,9 @@ This is a basic example which shows you how to read VCF data to R with [`read_vc
 
 ``` r
 library(geno2r)
-read_vcf(file = "human.vcf.gz", range="1:1000-300000")
+read_vcf(file = "human.vcf.gz", range="22:49379357")   # or
+read_vcf(file = "human.vcf.gz", range="22:49379357-49379357")   # or
+read_vcf(file = "human.vcf.gz", range=NULL)
 ```
 
 ## Example data
