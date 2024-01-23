@@ -12,7 +12,7 @@ read_vcf(file, range = NULL)
 \item{range}{To specify the range you want to read from the genome. e.g. "1:1000-100000" (genomic range), "1:12345"(single variant), "1:12345-12345" (single variant), NULL (all variants)}
 }
 \value{
-A list which include a genotype matrix and a marker information data.table.
+A list which include a genotype matrix and a marker information data.table. Return NULL if no variant found withing given range.
 }
 \description{
 This function reads the VCF file into R and converts it to a data.table format. While genomic range is given, \href{https://github.com/samtools/htslib}{HTSlib}, a wrapped C library, reads directly from a region instead of loading the full VCF file to memory. It is mandatory to compress the VCF file using bgzip and create an index using tabix.

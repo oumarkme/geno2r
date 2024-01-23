@@ -12,7 +12,7 @@
 #' @import stringr
 #' @importFrom GenomicRanges GRanges
 #' @importFrom IRanges IRanges
-#' @return A list which include a genotype matrix and a marker information data.table.
+#' @return A list which include a genotype matrix and a marker information data.table. Return NULL if no variant found withing given range.
 #'
 #' @export
 read_vcf = function(file, range = NULL){
@@ -49,7 +49,7 @@ read_vcf = function(file, range = NULL){
     if(length(tmp) == 1){
       tmp = data.table::as.data.table(t(unlist(stringr::str_split(tmp, "\t"))))
       colnames(tmp) = vcfHeader
-    }else{
+    }else if (length(tmp) > 1){
       tmp = data.table::fread(text = tmp)
       colnames(tmp) = vcfHeader
     }
@@ -57,15 +57,20 @@ read_vcf = function(file, range = NULL){
 
 
   ### Reformat and return result
-  marker = tmp[,1:5]
-  oldGeno = t(as.matrix(tmp[, -1:-9]))
-  geno = matrix(NA, nrow(oldGeno), ncol(oldGeno))
-  geno[stringr::str_detect(oldGeno, "(0/0)|(0|0)")] = 0
-  geno[stringr::str_detect(oldGeno, "(0/1)|(1/0)|(0|1)|(1|0)")] = 1
-  geno[stringr::str_detect(oldGeno, "(1/1)|(1|1)")] = 2
-  rownames(geno) = vcfHeader[-1:-9]
-  colnames(geno) = marker$ID
+  if(is.null(dim(tmp))){
+    vcf = NULL
+  }else{
+    marker = tmp[,1:5]
+    oldGeno = t(as.matrix(tmp[, -1:-9]))
+    geno = matrix(NA, nrow(oldGeno), ncol(oldGeno))
+    geno[stringr::str_detect(oldGeno, "(0/0)|(0|0)")] = 0
+    geno[stringr::str_detect(oldGeno, "(0/1)|(1/0)|(0|1)|(1|0)")] = 1
+    geno[stringr::str_detect(oldGeno, "(1/1)|(1|1)")] = 2
+    rownames(geno) = vcfHeader[-1:-9]
+    colnames(geno) = marker$ID
+    vcf = list(geno=geno, marker=marker)
+  }
 
-  return(list(geno=geno, marker=marker))
+  return(vcf)
 }
 
