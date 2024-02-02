@@ -15,8 +15,8 @@ The goal of geno2r is to easily import genotype data from various formats into R
 You can install the most recent version of geno2r from GitHub with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("oumarkme/geno2r", force=TRUE)
+#install.packages("remotes")
+remotes::install_github("oumarkme/geno2r", force=TRUE)
 ```
 
 ## Example
